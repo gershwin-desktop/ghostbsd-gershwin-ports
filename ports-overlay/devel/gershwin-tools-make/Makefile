@@ -14,8 +14,8 @@ CONFLICTS=	gnustep-make
 USES=		gershwin objc
 GNU_CONFIGURE=	yes
 
-BUILD_DEPENDS=	${GNUSTEP_PREFIX}/System/Library/Preferences/GNUstep.conf:misc/gershwin-globaldefaults
-RUN_DEPENDS=	${GNUSTEP_PREFIX}/System/Library/Preferences/GNUstep.conf:misc/gershwin-globaldefaults
+BUILD_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Preferences/GNUstep.conf:misc/gershwin-globaldefaults
+RUN_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Preferences/GNUstep.conf:misc/gershwin-globaldefaults
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gnustep
