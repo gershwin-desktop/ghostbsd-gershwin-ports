@@ -1,5 +1,5 @@
 PORTNAME=	tools-make
-DISTVERSION=	20250615
+DISTVERSION=	2025061501
 CATEGORIES=	devel gnustep
 PKGNAMEPREFIX=	gershwin-
 
@@ -14,9 +14,6 @@ CONFLICTS=	gnustep-make
 USES=		gershwin objc
 GNU_CONFIGURE=	yes
 
-BUILD_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Preferences/GNUstep.conf:misc/gershwin-globaldefaults
-RUN_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Preferences/GNUstep.conf:misc/gershwin-globaldefaults
-
 USE_GITHUB=	yes
 GH_ACCOUNT=	gnustep
 GH_TAGNAME=	faa64aa
@@ -24,9 +21,12 @@ GH_TAGNAME=	faa64aa
 MAKE_FLAGS=	OPTFLAG="${CFLAGS}"
 CONFIGURE_ENV+=	INSTALL_PROGRAM="${INSTALL} -c" INSTALL_DATA="${INSTALL} -c"
 
+pre-configure:
+	${CP} ${FILESDIR}/GNUstep.conf ${WRKSRC}/FilesystemLayouts/gershwin
+
 CONFIGURE_ARGS+= \
 		--with-config-file=/System/Library/Preferences/GNUstep.conf \
-		--enable-importing-config-file \
+		--with-layout=gershwin \
 		--with-library-combo=ng-gnu-gnu
 
 GNU_CONFIGURE_PREFIX= ${GNUSTEP_PREFIX}
