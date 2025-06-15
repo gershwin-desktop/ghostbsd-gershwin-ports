@@ -22,14 +22,48 @@ sudo make -j$(sysctl -n hw.ncpu) buildkernel
 
 ## Usage
 
-To build ports defined in ports.list:
+### Port Development Workflow
+
+This system uses `ports.list` to track which overlay ports to install and test with poudriere.
+
+- All ports listed in `ports.list` are copied from `ports-overlay/` to `/usr/ports/` each time `make ports` is run.
+- This enables full use of the ports system (`make stage`, `make clean`, `make makeplist`, etc.) with proper dependency resolution.
+- When running `make clean`, all ports listed in `ports.list` are removed from `/usr/ports/`, along with the custom `Mk/Uses/gershwin.mk` file.
+
+### Recommended Port Development Steps
+
+1. Create a port directory in `ports-overlay/category/portname/`.
+2. Write the initial `Makefile`.
+3. Run:
+   ```
+   make makesum
+   make stage
+   make clean
+   make makeplist > pkg-plist
+   portlint
+   ```
+4. Once validated, add `category/portname` to `ports.list`.
+
+## Commands
+
+### Build Ports with Poudriere
 
 ```
 sudo make ports
 ```
 
-To cleanup all poudriere related data generated in /zroot/gnustep
+This will:
+- Install overlay ports and `gershwin.mk` into `/usr/ports`
+- Set up a poudriere jail and port tree (if not already set up)
+- Build all ports listed in `ports.list`
+
+### Clean All Overlay Data
 
 ```
 sudo make clean
 ```
+
+This will:
+- Remove all overlay ports listed in `ports.list` from `/usr/ports`
+- Remove `Mk/Uses/gershwin.mk`
+- Destroy all poudriere datasets under `/zroot/gnustep-build`

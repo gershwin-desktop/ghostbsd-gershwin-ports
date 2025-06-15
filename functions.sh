@@ -55,9 +55,26 @@ poudriere_ports() {
   fi
 }
 
-poudriere_overlay() {
-  poudriere -e "$POUDRIERE_ETC" ports -l | grep -q gnustep_overlay || \
-    poudriere -e "$POUDRIERE_ETC" ports -c -p gnustep_overlay -m null -M "$(pwd)/ports-overlay"
+read_ports_list() {
+  PORTS_LIST=$(awk -F/ '{print $0}' ports.list)
+}
+
+install_overlay_ports() {
+  read_ports_list
+
+  # Install custom Mk/Uses file
+  install -d /usr/ports/Mk/Uses
+  install -m 0644 ports-overlay/Mk/Uses/gershwin.mk /usr/ports/Mk/Uses/gershwin.mk
+
+  # Replace listed ports
+  for port in $PORTS_LIST; do
+    port_path="/usr/ports/$port"
+    overlay_path="ports-overlay/$port"
+
+    [ -d "$port_path" ] && rm -rf "$port_path"
+    install -d "$(dirname "$port_path")"
+    cp -a "$overlay_path" "$port_path"
+  done
 }
 
 poudriere_bulk() {
@@ -70,11 +87,20 @@ ports_target() {
   install_poudriere_conf
   poudriere_jail
   poudriere_ports
-  poudriere_overlay
+  install_overlay_ports
   poudriere_bulk
 }
 
 clean_zfs() {
   zfs destroy -rf zroot/gnustep-build || echo "Nothing to clean"
   if [ -d /zroot/gnustep-build ] ; then rm -rf /zroot/gnustep-build ; fi
+
+  read_ports_list
+
+  rm -f /usr/ports/Mk/Uses/gershwin.mk 2>/dev/null
+
+  for port in $PORTS_LIST; do
+    port_path="/usr/ports/$port"
+    rm -rf "$port_path" 2>/dev/null
+  done
 }
