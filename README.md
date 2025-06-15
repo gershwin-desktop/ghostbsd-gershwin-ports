@@ -37,9 +37,9 @@ This system uses `ports.list` to track which overlay ports to install and test w
 2. Write the initial `Makefile`.
 3. Run:
    ```
-   make makesum
-   make stage clean
-   make makeplist > pkg-plist
+   sudo make makesum
+   sudo make stage clean
+   sudo make make makeplist > pkg-plist
    portlint
    ```
 4. Once validated, add `category/portname` to `ports.list`.
