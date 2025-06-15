@@ -11,6 +11,7 @@ sudo pkg install Ghostbsd-src
 sudo pkg install Ghostbsd-src-sys
 sudo pkg install ports
 sudo pkg install poudriere-devel
+sudo pkg install portlint
 ```
 
 Build world and kernel for poudriere jail:
@@ -37,8 +38,7 @@ This system uses `ports.list` to track which overlay ports to install and test w
 3. Run:
    ```
    make makesum
-   make stage
-   make clean
+   make stage clean
    make makeplist > pkg-plist
    portlint
    ```
