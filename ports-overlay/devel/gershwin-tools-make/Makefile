@@ -3,15 +3,14 @@ DISTVERSION=	2025061501
 CATEGORIES=	devel gnustep
 PKGNAMEPREFIX=	gershwin-
 
-
 MAINTAINER=	jpm820@proton.me
 COMMENT=	GNUstep makefile package
 WWW=		http://www.gnustep.org/
 
 LICENSE=	GPLv3
-CONFLICTS=	gnustep-make
 
 USES=		gershwin objc
+CONFLICTS=	gnustep-make
 GNU_CONFIGURE=	yes
 
 USE_GITHUB=	yes
@@ -25,9 +24,9 @@ pre-configure:
 	${CP} ${FILESDIR}/GNUstep.conf ${WRKSRC}/FilesystemLayouts/gershwin
 
 CONFIGURE_ARGS+= \
-		--with-config-file=/System/Library/Preferences/GNUstep.conf \
-		--with-layout=gershwin \
-		--with-library-combo=ng-gnu-gnu
+	--with-config-file=/System/Library/Preferences/GNUstep.conf \
+	--with-layout=gershwin \
+	--with-library-combo=ng-gnu-gnu
 
 GNU_CONFIGURE_PREFIX= ${GNUSTEP_PREFIX}
 NO_ARCH=	yes
