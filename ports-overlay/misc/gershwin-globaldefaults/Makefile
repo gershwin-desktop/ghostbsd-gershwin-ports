@@ -1,5 +1,5 @@
 PORTNAME=	gershwin-globaldefaults
-DISTVERSION=20250614
+DISTVERSION=	20250614
 CATEGORIES=	misc
 MAINTAINER=	jpm820@proton.me
 COMMENT=	Gershwin global defaults for GNUstep under /System
@@ -9,7 +9,7 @@ LICENSE=	BSD2CLAUSE
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gershwin-os
-GH_TAGNAME= 92d9bcd
+GH_TAGNAME= 	c6a9d43
 
 NO_ARCH=	yes
 NOPREFIX=	yes
@@ -19,5 +19,7 @@ do-install:
 	${MKDIR} ${STAGEDIR}/System/Library/Preferences/GlobalDefaults
 	${INSTALL_DATA} ${WRKSRC}/System/Library/Preferences/GlobalDefaults/*.plist \
 		${STAGEDIR}/System/Library/Preferences/GlobalDefaults
+	${INSTALL_DATA} ${WRKSRC}/System/Library/Preferences/GNUstep.conf \
+		${STAGEDIR}/System/Library/Preferences/
 
 .include <bsd.port.mk>
