@@ -78,7 +78,7 @@ install_overlay_ports() {
 }
 
 poudriere_bulk() {
-  poudriere -e "$POUDRIERE_ETC" bulk -j gnustep_base -p gnustep_ports -O gnustep_overlay $(cat ports.list)
+  poudriere -e "$POUDRIERE_ETC" bulk -j gnustep_base -p gnustep_ports $(cat ports.list)
 }
 
 ports_target() {
