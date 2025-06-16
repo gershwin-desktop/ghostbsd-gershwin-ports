@@ -4,6 +4,11 @@ This tool is intended for development and testing of all Gershwin related ports 
 
 ## Requirements
 
+This should commented out in `/boot/loader.conf` to prevent bad file descriptor issues:
+```
+#vfs.zfs.arc_max="512M"
+```
+
 Install the following packages on GhostBSD:
 ```
 sudo pkg install -g 'GhostBSD*-dev'
