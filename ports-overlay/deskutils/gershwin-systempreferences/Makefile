@@ -9,7 +9,7 @@ WWW=		https://github.com/gershwin-os/gershwin-systempreferences
 LICENSE=	GPLv2
 
 USES=		gershwin
-CONFLICTS=	gworkspace
+CONFLICTS=	systempreferences
 USE_GERSHWIN=	back build
 USE_LDCONFIG=	${GNUSTEP_SYSTEM_LIBRARIES}
 
