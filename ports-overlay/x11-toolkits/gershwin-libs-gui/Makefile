@@ -24,8 +24,8 @@ USE_GERSHWIN=	base build
 USE_XORG=	x11 xt
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	gnustep
-GH_TAGNAME= 302d0cc
+GH_ACCOUNT=	gershwin-os
+GH_TAGNAME= 81f1a5b
 
 GNU_CONFIGURE=	yes
 
