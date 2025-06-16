@@ -1,3 +1,4 @@
+devel/gershwin-tools-make
 lang/gershwin-libs-base
 misc/gershwin-globaldefaults
-devel/gershwin-tools-make
+x11-toolkits/gershwin-libs-gui
