@@ -9,23 +9,23 @@ WWW=		http://www.gnustep.org/
 
 LICENSE=	GPLv3 LGPL3
 LICENSE_COMB=	multi
-CONFLICTS=	gnustep-base
-
-USE_GITHUB=	yes
-GH_ACCOUNT=	gnustep
-GH_TAGNAME=	d147fba
 
 LIB_DEPENDS=	libffi.so:devel/libffi \
-				libcurl.so:ftp/curl \
-				libgcrypt.so:security/libgcrypt \
-				libgmp.so:math/gmp
+		libcurl.so:ftp/curl \
+		libgcrypt.so:security/libgcrypt \
+		libgmp.so:math/gmp
+
+USES=		pkgconfig iconv gnome gershwin
 
 RUN_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Makefiles/GNUstep.sh:devel/gershwin-tools-make
 
-USES=		pkgconfig iconv gnome gershwin
 USE_GNOME=	libxml2 libxslt
-USE_GERSHWIN=    build
+USE_GITHUB=	yes
+GH_ACCOUNT=	gnustep
+GH_TAGNAME=	d147fba
+USE_GERSHWIN=	build
 USE_LDCONFIG=	${GNUSTEP_SYSTEM_LIBRARIES}
+CONFLICTS=	gnustep-base
 
 OPTIONS_DEFINE=		ICU GNUTLS
 OPTIONS_RADIO=		ZEROCONF
