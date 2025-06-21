@@ -1,5 +1,5 @@
 PORTNAME=	ghostbsd-gershwin-settings
-DISTVERSION=	20250621
+DISTVERSION=	2025062101
 CATEGORIES=	x11
 
 MAINTAINER=	jpm820@proton.me
@@ -18,16 +18,19 @@ NO_ARCH=	yes
 NO_BUILD=	yes
 
 do-install:
-	# Install bin scripts
-	@${MKDIR} ${STAGEDIR}${PREFIX}/bin
-	${INSTALL_SCRIPT} ${WRKSRC}/bin/gershwin-x11 ${STAGEDIR}${PREFIX}/bin/
+	@${MKDIR} ${STAGEDIR}${PREFIX}
 
-	# Install etc files
+	# Recursively install bin/ scripts
+	@cd ${WRKSRC}/bin && \
+		${FIND} . -type d -exec ${MKDIR} "${STAGEDIR}${PREFIX}/bin/{}" \; && \
+		${FIND} . -type f -exec ${INSTALL_SCRIPT} "{}" "${STAGEDIR}${PREFIX}/bin/{}" \;
+
+	# Recursively install etc files
 	@cd ${WRKSRC}/etc && \
-		${FIND} . -type d -exec ${MKDIR} "${STAGEDIR}/etc/{}" \; && \
-		${FIND} . -type f -exec ${INSTALL_DATA} "{}" "${STAGEDIR}/etc/{}" \;
+		${FIND} . -type d -exec ${MKDIR} "${STAGEDIR}${PREFIX}/etc/{}" \; && \
+		${FIND} . -type f -exec ${INSTALL_DATA} "{}" "${STAGEDIR}${PREFIX}/etc/{}" \;
 
-	# Install share files
+	# Recursively install share files
 	@cd ${WRKSRC}/share && \
 		${FIND} . -type d -exec ${MKDIR} "${STAGEDIR}${PREFIX}/share/{}" \; && \
 		${FIND} . -type f -exec ${INSTALL_DATA} "{}" "${STAGEDIR}${PREFIX}/share/{}" \;
