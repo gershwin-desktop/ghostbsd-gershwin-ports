@@ -1,16 +1,16 @@
 PORTNAME=	gershwin-globaldefaults
-DISTVERSION=	2025062103
+DISTVERSION=	20250628
 CATEGORIES=	misc
 MASTER_SITES=	GH
 
 MAINTAINER=	jpm820@proton.me
 COMMENT=	Gershwin global defaults for GNUstep under /System
-WWW=		https://github.com/gershwin-os/gershwin-globaldefaults
+WWW=		https://github.com/gershwin-desktop/gershwin-globaldefaults
 
 LICENSE=	BSD2CLAUSE
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	gershwin-os
+GH_ACCOUNT=	gershwin-desktop
 GH_TAGNAME=	750e040
 
 NO_ARCH=	yes
