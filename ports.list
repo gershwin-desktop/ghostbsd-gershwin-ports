@@ -8,5 +8,6 @@ lang/gershwin-libs-base
 misc/gershwin-globaldefaults
 x11/gershwin-terminal
 x11/ghostbsd-gershwin-settings
+x11-themes/gershwin-rik-theme
 x11-toolkits/gershwin-libs-back
 x11-toolkits/gershwin-libs-gui
