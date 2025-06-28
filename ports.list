@@ -1,6 +1,7 @@
 deskutils/gershwin-workspace
 deskutils/gershwin-systempreferences
 deskutils/gershwin-textedit
+devel/gershwin-apps-gorm
 devel/gershwin-tools-make
 lang/gershwin-libs-base
 misc/gershwin-globaldefaults
