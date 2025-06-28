@@ -9,6 +9,7 @@ WWW=		https://github.com/gershwin-desktop/gershwin-terminal
 LICENSE=	GPLv2 # only
 
 USES=		gershwin iconv
+CONFLICTS=	terminal.app
 USE_GERSHWIN=	back build
 
 USE_GITHUB=	yes
