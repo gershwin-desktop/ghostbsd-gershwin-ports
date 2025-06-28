@@ -1,6 +1,6 @@
 PORTNAME=	gershwin-textedit
 DISTVERSION=	20250628
-CATEGORIES=	x11 gnustep
+CATEGORIES=	deskutils gnustep
 
 MAINTAINER=	jpm820@proton.me
 COMMENT=	Gershwin TextEdit for GNUstep
