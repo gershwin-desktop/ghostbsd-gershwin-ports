@@ -13,6 +13,6 @@ USE_GERSHWIN=	back build gui
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gershwin-desktop
-GH_TAGNAME=	d72e0e0
+GH_TAGNAME=	e93dfcb
 
 .include <bsd.port.mk>
