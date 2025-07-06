@@ -1,5 +1,3 @@
-TIMESTAMP = 1751756876
+TIMESTAMP = 1751776892
 SHA256 (vala-panel-appmenu-c172702.tar.bz2) = f1c54ce6c39517ea94b9176c0d23b0516ded60c09aa7bcfea16f30932ce125e0
 SIZE (vala-panel-appmenu-c172702.tar.bz2) = 115014
-SHA256 (442bcebcc00e.patch) = c9ffd68b96b6b9790cf37ecf64cb4984848f4d19f9859d881cea18fa3d3c89a2
-SIZE (442bcebcc00e.patch) = 1613
