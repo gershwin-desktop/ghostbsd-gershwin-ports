@@ -6,8 +6,6 @@ devel/gershwin-apps-projectcenter
 devel/gershwin-tools-make
 lang/gershwin-libs-base
 misc/gershwin-globaldefaults
-x11/appmenu-registrar-devel
-x11/gtk-app-menu-devel
 x11/gershwin-terminal
 x11/ghostbsd-gershwin-settings
 x11-themes/gershwin-rik-theme
