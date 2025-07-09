@@ -1,8 +1,7 @@
 PORTNAME=       xfce4-appmenu-plugin
-DISTVERSION=    20250705
-PORTREVISION=   1
+DISTVERSION=    20250708
 CATEGORIES=     x11
-PKGNAMESUFFIX=  -devel
+PKGNAMEPREFIX=	gershwin-
 
 MAINTAINER=     jpm820@gmail.com
 COMMENT=        Application Menu plugin for XFCE panel
@@ -11,9 +10,8 @@ WWW=            https://gitlab.com/vala-panel-project/vala-panel-appmenu
 LICENSE=        LGPL3
 LICENSE_FILE=   ${WRKSRC}/LICENSE
 
-LIB_DEPENDS=    libbamf3.so:sysutils/bamf
-RUN_DEPENDS=    appmenu-registrar-devel>=0:x11/appmenu-registrar-devel \
-                appmenu-gtk-module-devel>=0:x11/gtk-app-menu-devel
+RUN_DEPENDS=    gershwin-appmenu-registrar>=0:x11/gershwin-appmenu-registrar \
+                gershwin-appmenu-gtk-module>=0:x11/gershwin-gtk-app-menu
 
 USES=		meson gnome xfce pkgconfig gettext vala:build
 CONFLICTS=	xfce4-appmenu-plugin
@@ -29,10 +27,10 @@ MESON_ARGS=     -Dvalapanel=disabled \
 USE_XFCE=       panel xfconf
 USE_GNOME=      gtk30 glib20 gtk20 gdkpixbuf
 
-USE_GITLAB=     yes
-GL_ACCOUNT=     vala-panel-project
-GL_PROJECT=     vala-panel-appmenu
-GL_TAGNAME=     c172702
+USE_GITHUB=     yes
+GH_ACCOUNT=     gershwin-desktop
+GH_PROJECT=     vala-panel-appmenu
+GH_TAGNAME=     4c00900
 
 post-extract:
 	@${CP} ${FILESDIR}/meson.build ${WRKSRC}/meson.build

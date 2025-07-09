@@ -1,8 +1,7 @@
 PORTNAME=       appmenu-registrar
-DISTVERSION=    20250705
-PORTREVISION=   1
+DISTVERSION=    20250708
 CATEGORIES=     x11
-PKGNAMESUFFIX=  -devel
+PKGNAMEPREFIX=	gershwin-
 
 MAINTAINER=     jpm820@proton.me
 COMMENT=        Appmenu DBusMenu registrar
@@ -10,8 +9,6 @@ WWW=            https://gitlab.com/vala-panel-project/vala-panel-appmenu/-/tree/
 
 LICENSE=        LGPL3
 LICENSE_FILE=   ${WRKSRC}/LICENSE
-
-LIB_DEPENDS=    libbamf3.so:sysutils/bamf
 
 USES=   meson gnome pkgconfig gettext vala:build
 CONFLICTS=	appmenu-registrar
@@ -26,10 +23,10 @@ MESON_ARGS=     -Dvalapanel=disabled \
 
 USE_GNOME=      gtk30 glib20 gdkpixbuf
 
-USE_GITLAB=     yes
-GL_ACCOUNT=     vala-panel-project
-GL_PROJECT=     vala-panel-appmenu
-GL_TAGNAME=     c172702
+USE_GITHUB=     yes
+GH_ACCOUNT=     gershwin-desktop
+GH_PROJECT=     vala-panel-appmenu
+GH_TAGNAME=     4c00900
 
 post-extract:
 	@${CP} ${FILESDIR}/meson.build ${WRKSRC}/meson.build
