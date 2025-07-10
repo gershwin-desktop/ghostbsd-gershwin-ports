@@ -11,7 +11,7 @@ LICENSE=        LGPL3
 LICENSE_FILE=   ${WRKSRC}/LICENSE
 
 RUN_DEPENDS=    gershwin-appmenu-registrar>=0:x11/gershwin-appmenu-registrar \
-                gershwin-appmenu-gtk-module>=0:x11/gershwin-gtk-app-menu
+		gershwin-appmenu-gtk-module>=0:x11/gershwin-gtk-app-menu
 
 USES=		meson gnome xfce pkgconfig gettext vala:build
 CONFLICTS=	xfce4-appmenu-plugin
