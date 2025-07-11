@@ -8,7 +8,10 @@ WWW=		https://github.com/gershwin-desktop/gershwin-dbuskit
 
 LICENSE=	GPLv2+
 
-USES=		gershwin
+LIB_DEPENDS=	libdbus-1.so:devel/dbus \
+		libdbus-glib-1.so:devel/dbus-glib
+
+USES=		gershwin pkgconfig
 USE_GERSHWIN=	back build
 
 USE_GITHUB=	yes

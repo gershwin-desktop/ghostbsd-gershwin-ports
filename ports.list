@@ -4,8 +4,10 @@ deskutils/gershwin-textedit
 devel/gershwin-apps-gorm
 devel/gershwin-apps-projectcenter
 devel/gershwin-tools-make
+devel/gershwin-dbuskit
 lang/gershwin-libs-base
 misc/gershwin-globaldefaults
+sysutils/gershwin-gbi-wrapper
 x11/gershwin-terminal
 x11/ghostbsd-gershwin-settings
 x11-themes/gershwin-rik-theme
