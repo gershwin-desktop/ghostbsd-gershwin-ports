@@ -8,7 +8,7 @@ MAINTAINER=	ports@FreeBSD.org
 COMMENT=	GNUstep Gershwin desktop environment meta port
 WWW=		https://github.com/gershwin-desktop/gershwin-desktop
 
-LICENSE=	BSDv3
+LICENSE=	BSD3CLAUSE
 
 RUN_DEPENDS=	gershwin-globaldefaults>0:misc/gershwin-globaldefaults \
 		gershwin-tools-make>0:devel/gershwin-tools-make \
