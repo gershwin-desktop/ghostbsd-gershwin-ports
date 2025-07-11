@@ -1,6 +1,6 @@
 PORTNAME=	gershwin-gbi-wrapper
 DISTVERSION=	20250710
-CATEGORIES=	devel gnustep
+CATEGORIES=	sysutils gnustep
 
 MAINTAINER=	jpm820@proton.me
 COMMENT=	DBusKit framework for Gershwin
