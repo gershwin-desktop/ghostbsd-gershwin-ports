@@ -17,8 +17,11 @@ GH_TAGNAME=	d912804
 
 MAKE_ARGS+=     GNUSTEP_INSTALLATION_DOMAIN=LOCAL
 
+ALL_TARGET=     all
+INSTALL_TARGET= install-apps
+
 post-install:
 	@${MKDIR} ${STAGEDIR}/Library
-	cp -R ${WRKSRC}/Library/Tools ${STAGEDIR}/Library/
+	${CP} -R ${WRKSRC}/Library/Tools ${STAGEDIR}/Library/
 
 .include <bsd.port.mk>
