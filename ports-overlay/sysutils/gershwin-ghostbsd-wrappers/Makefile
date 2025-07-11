@@ -1,4 +1,4 @@
-PORTNAME=	ghostbsd-gershwin-wrappers
+PORTNAME=	gershwin-ghostbsd-wrappers
 DISTVERSION=	20250710
 CATEGORIES=	sysutils gnustep
 
