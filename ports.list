@@ -3,6 +3,7 @@ deskutils/gershwin-systempreferences
 deskutils/gershwin-textedit
 devel/gershwin-apps-gorm
 devel/gershwin-apps-projectcenter
+devel/gershwin-developer
 devel/gershwin-tools-make
 devel/gershwin-dbuskit
 lang/gershwin-libs-base
@@ -10,6 +11,7 @@ misc/gershwin-globaldefaults
 sysutils/gershwin-gbi-wrapper
 sysutils/gershwin-ghostbsd-wrappers
 x11/gershwin-appmenu-registrar
+x11/gershwin-desktop
 x11/gershwin-gtk-app-menu
 x11/gershwin-terminal
 x11/gershwin-xfce4-appmenu-plugin
