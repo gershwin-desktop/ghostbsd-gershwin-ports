@@ -4,7 +4,7 @@ CATEGORIES=	x11 gnustep
 MASTER_SITES=	# empty
 DISTFILES=	# empty
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	jpm820@proton.me
 COMMENT=	GNUstep Gershwin desktop environment meta port
 WWW=		https://github.com/gershwin-desktop/gershwin-desktop
 
