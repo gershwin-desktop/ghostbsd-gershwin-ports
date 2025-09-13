@@ -4,26 +4,12 @@ This tool is intended for development and testing of all Gershwin related ports 
 
 ## Requirements
 
-This should commented out in `/boot/loader.conf` to prevent bad file descriptor issues:
-```
-#vfs.zfs.arc_max="512M"
-```
-
 Install the following packages on GhostBSD:
 ```
 sudo pkg install -g 'GhostBSD*-dev'
-sudo pkg install Ghostbsd-src
-sudo pkg install Ghostbsd-src-sys
 sudo pkg install ports
 sudo pkg install poudriere-devel
 sudo pkg install portlint
-```
-
-Build world and kernel for poudriere jail:
-```
-cd /usr/src
-sudo make -j$(sysctl -n hw.ncpu) buildworld
-sudo make -j$(sysctl -n hw.ncpu) buildkernel
 ```
 
 ## Usage
@@ -32,9 +18,7 @@ sudo make -j$(sysctl -n hw.ncpu) buildkernel
 
 This system uses `ports.list` to track which overlay ports to install and test with poudriere.
 
-- All ports listed in `ports.list` are copied from `ports-overlay/` to `/usr/ports/` each time `make ports` is run.
-- This enables full use of the ports system (`make stage`, `make clean`, `make makeplist`, etc.) with proper dependency resolution.
-- When running `make clean`, all ports listed in `ports.list` are removed from `/usr/ports/`, along with the custom `Mk/Uses/gershwin.mk` file.
+- All ports listed in `ports.list` are mounted from `ports-overlay/` to ports jail each time `make ports` is run.
 
 ### Recommended Port Development Steps
 
@@ -57,18 +41,17 @@ This system uses `ports.list` to track which overlay ports to install and test w
 sudo make ports
 ```
 
-This will:
-- Install overlay ports and `gershwin.mk` into `/usr/ports`
-- Set up a poudriere jail and port tree (if not already set up)
+This will:`
+- Set up a poudriere jail using pkgbase to install GhostBSD
+- Mount /usr/ports to ports jail
+- Mount ports-overlay into ports jail
 - Build all ports listed in `ports.list`
 
-### Clean All Overlay Data
+### Clean All Data
 
 ```
 sudo make clean
 ```
 
 This will:
-- Remove all overlay ports listed in `ports.list` from `/usr/ports`
-- Remove `Mk/Uses/gershwin.mk`
-- Destroy all poudriere datasets under `/zroot/gnustep-build`
+- Destroy all poudriere datasets under `/zroot/gnustep-build and leave /usr/ports untouched`
