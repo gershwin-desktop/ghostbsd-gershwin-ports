@@ -1,5 +1,5 @@
 PORTNAME=	gershwin-developer
-PORTVERSION=	20250712
+PORTVERSION=	20250912
 CATEGORIES=	devel
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -28,11 +28,11 @@ RUN_DEPENDS=	${LOCALBASE}/lib/libobjc.so:lang/libobjc2 \
 		${LOCALBASE}/lib/libXt.so:x11-toolkits/libXt \
 		${LOCALBASE}/lib/libportaudio.so:audio/portaudio \
 		${LOCALBASE}/bin/gmake:devel/gmake \
-		${LOCALBASE}/bin/cmake:devel/cmake \
 		${LOCALBASE}/lib/libssl.so:security/openssl \
 		${LOCALBASE}/lib/libglut.so:graphics/freeglut \
 		${LOCALBASE}/lib/libgif.so:graphics/giflib \
-		${LOCALBASE}/lib/libao.so:audio/libao
+		${LOCALBASE}/lib/libao.so:audio/libao \
+                ${LOCALBASE}/bin/git:devel/git
 
 NO_BUILD=	yes
 NO_INSTALL=	yes

@@ -10,3 +10,6 @@ ports:
 
 clean:
 	@sh -c ". ${FUNCS}; clean_zfs"
+
+host:
+	@sh -c ". ${FUNCS}; setup_pkg_host"

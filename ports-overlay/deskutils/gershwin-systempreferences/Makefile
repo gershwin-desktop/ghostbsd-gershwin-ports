@@ -1,5 +1,5 @@
 PORTNAME=	gershwin-systempreferences
-DISTVERSION=	20250704
+DISTVERSION=	20250912
 CATEGORIES=	deskutils gnustep
 
 MAINTAINER=	jpm820@proton.me

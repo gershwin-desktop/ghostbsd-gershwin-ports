@@ -145,6 +145,87 @@ ports_target() {
   poudriere_bulk
 }
 
+setup_pkg_host() {
+  echo "Setting up local pkg repository host with nginx..."
+  
+  # Use POUDRIERE_ETC from environment or default
+  local config_path="${POUDRIERE_ETC:-/zroot/gnustep-build/etc}"
+  
+  # Source poudriere.conf to get POUDRIERE_DATA path
+  if [ -f "${config_path}/poudriere.conf" ]; then
+    . "${config_path}/poudriere.conf"
+  else
+    echo "ERROR: Cannot find poudriere.conf at ${config_path}"
+    return 1
+  fi
+  
+  # Install nginx if not already installed
+  if ! pkg info -e nginx; then
+    echo "Installing nginx..."
+    pkg install -y nginx
+  fi
+  
+  # Create a complete nginx.conf
+  cat > /usr/local/etc/nginx/nginx.conf << EOF
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile      on;
+    keepalive_timeout  65;
+
+    server {
+        listen       80;
+        listen       [::]:80;
+        server_name  localhost $(hostname);
+        
+        root ${POUDRIERE_DATA}/packages;
+        
+        location / {
+            autoindex on;
+            autoindex_exact_size off;
+            autoindex_localtime on;
+        }
+        
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/local/www/nginx-dist;
+        }
+    }
+}
+EOF
+  
+  # Fix permissions
+  chmod 755 "${POUDRIERE_DATA}"
+  chmod 755 "${POUDRIERE_DATA}/packages"
+  
+  # Enable and restart nginx
+  sysrc nginx_enable="YES"
+  
+  # Test and restart
+  if nginx -t; then
+    service nginx restart
+    echo ""
+    echo "Package repository host configured successfully!"
+    echo "Repository available at:"
+    echo "  http://localhost/"
+    echo "  http://$(hostname)/"
+    if [ -d "${POUDRIERE_DATA}/packages/gnustep_base-gnustep_ports" ]; then
+      echo ""
+      echo "GNUstep packages available at:"
+      echo "  http://localhost/gnustep_base-gnustep_ports/"
+    fi
+  else
+    echo "ERROR: nginx configuration test failed"
+    return 1
+  fi
+}
+
 clean_zfs() {
   zfs destroy -rf zroot/gnustep-build || echo "Nothing to clean"
   if [ -d /zroot/gnustep-build ] ; then rm -rf /zroot/gnustep-build ; fi

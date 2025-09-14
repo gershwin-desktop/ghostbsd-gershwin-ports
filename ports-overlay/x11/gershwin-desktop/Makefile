@@ -1,5 +1,5 @@
 PORTNAME=	gershwin-desktop
-PORTVERSION=	20250909
+PORTVERSION=	20250912
 CATEGORIES=	x11 gnustep
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -22,13 +22,12 @@ RUN_DEPENDS=	gershwin-globaldefaults>0:misc/gershwin-globaldefaults \
 		gershwin-xfce4-appmenu-plugin>0:x11/gershwin-xfce4-appmenu-plugin \
 		gershwin-rik-theme>0:x11-themes/gershwin-rik-theme \
 		gershwin-systempreferences>0:deskutils/gershwin-systempreferences \
-		gershwin-terminal>0:x11/gershwin-terminal \
-		gershwin-textedit>0:deskutils/gershwin-textedit \
 		ghostbsd-gershwin-settings>0:x11/ghostbsd-gershwin-settings \
 		ghostbsd-wallpapers25>0:x11-themes/ghostbsd-wallpapers25 \
 		ghostbsd-gtk-themes>0:x11-themes/ghostbsd-gtk-themes \
 		ghostbsd-zsh-settings>0:shells/ghostbsd-zsh-settings \
 		wmctrl-fork>0:x11/wmctrl-fork \
+		xorg-fonts-truetype>0:x11-fonts/xorg-fonts-truetype \
 		xfce4-wm>0:x11-wm/xfce4-wm \
 		xfce4-panel>0:x11-wm/xfce4-panel \
 		xfce4-pulseaudio-plugin>0:audio/xfce4-pulseaudio-plugin
